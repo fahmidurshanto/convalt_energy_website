@@ -1,18 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-900 text-slate-400 py-12 px-6 relative z-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded bg-amber-500 flex items-center justify-center font-bold text-slate-950">
-            C
-          </div>
-          <span className="text-lg font-bold text-white tracking-wider">
-            CONVALT ENERGY
-          </span>
-        </div>
+        <Link href="/" className="relative w-36 h-10 flex items-center">
+          <Image
+            src="/convalt_logo.png"
+            alt="Convalt Energy Logo"
+            fill
+            className="object-contain object-left"
+          />
+        </Link>
         <p className="text-xs text-slate-500">
           &copy; {new Date().getFullYear()} Convalt Energy. All rights reserved. Pioneering Sustainable Power & Infrastructure.
         </p>

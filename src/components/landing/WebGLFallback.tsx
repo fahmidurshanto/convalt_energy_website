@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 export default function WebGLFallback() {
   return (
@@ -8,10 +9,16 @@ export default function WebGLFallback() {
       {/* Background Gradient Effect */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/20 via-slate-950 to-slate-950 -z-10" />
       
-      <div className="max-w-3xl text-center space-y-6">
-        <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-amber-500/10 text-amber-400 border border-amber-500/20">
-          Convalt Energy
-        </span>
+      <div className="max-w-3xl text-center space-y-6 flex flex-col items-center">
+        <div className="relative w-48 h-14 mb-2">
+          <Image
+            src="/convalt_logo.png"
+            alt="Convalt Energy Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-100">
           Powering a Sustainable Future
         </h1>

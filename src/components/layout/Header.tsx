@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,12 +12,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center font-bold text-slate-950 text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-            C
+          <div className="relative w-36 h-10 flex items-center group-hover:scale-105 transition-transform">
+            <Image
+              src="/convalt_logo.png"
+              alt="Convalt Energy Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors">
-            CONVALT <span className="text-amber-500 font-light">ENERGY</span>
-          </span>
         </Link>
 
         {/* Desktop Navigation */}
