@@ -1,24 +1,35 @@
 'use client';
 
 import React from 'react';
-import { HeroScene, SolarScene } from './Scenes';
+import { HeroScene, SolarScene, PowerScene, DataCenterScene, RecyclingScene } from './Scenes';
 
 interface SceneControllerProps {
   progress: number;
 }
 
 export default function SceneController({ progress }: SceneControllerProps) {
-  // Simple opacity/visibility transition based on progress thresholds
-  const isHeroActive = progress < 0.45;
-  const isSolarActive = progress >= 0.25;
-
+  // Progress ranges matching LANDING_SCENES configuration:
+  // 0.0 - 0.2: Hero
+  // 0.2 - 0.4: Solar
+  // 0.4 - 0.6: Power
+  // 0.6 - 0.8: Data Center
+  // 0.8 - 1.0: Recycling
   return (
     <>
-      <group visible={isHeroActive}>
+      <group visible={progress < 0.28}>
         <HeroScene />
       </group>
-      <group visible={isSolarActive}>
+      <group visible={progress >= 0.15 && progress < 0.48}>
         <SolarScene />
+      </group>
+      <group visible={progress >= 0.35 && progress < 0.68}>
+        <PowerScene />
+      </group>
+      <group visible={progress >= 0.55 && progress < 0.88}>
+        <DataCenterScene />
+      </group>
+      <group visible={progress >= 0.75}>
+        <RecyclingScene />
       </group>
     </>
   );
