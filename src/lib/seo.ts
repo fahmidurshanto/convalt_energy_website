@@ -6,7 +6,7 @@ export function constructMetadata({
   title,
   description,
   path = '',
-  ogImage = '/convalt_logo.png',
+  ogImage = '/og-image.jpg',
 }: {
   title: string;
   description: string;
