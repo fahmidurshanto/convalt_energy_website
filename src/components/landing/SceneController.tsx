@@ -1,21 +1,17 @@
 'use client';
 
 import React from 'react';
-import { HeroScene, SolarScene, PowerScene, DataCenterScene, RecyclingScene } from './Scenes';
+import { HeroScene, SolarScene, PowerScene, DataCenterScene, RecyclingScene, EnergyParticles } from './Scenes';
 
 interface SceneControllerProps {
   progress: number;
 }
 
 export default function SceneController({ progress }: SceneControllerProps) {
-  // Progress ranges matching LANDING_SCENES configuration:
-  // 0.0 - 0.2: Hero
-  // 0.2 - 0.4: Solar
-  // 0.4 - 0.6: Power
-  // 0.6 - 0.8: Data Center
-  // 0.8 - 1.0: Recycling
   return (
     <>
+      <EnergyParticles count={1000} />
+      
       <group visible={progress < 0.28}>
         <HeroScene />
       </group>

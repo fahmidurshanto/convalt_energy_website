@@ -10,14 +10,12 @@ interface CameraRigProps {
 
 export default function CameraRig({ progress }: CameraRigProps) {
   const { camera } = useThree();
-  const currentPos = THREE.Vector3.prototype;
 
-  useFrame(() => {
+  useFrame((state) => {
     // Interpolate camera position based on scroll progress across available scenes
     const sceneCount = LANDING_SCENES.length;
     const clampedProgress = Math.max(0, Math.min(1, progress));
     
-    // Determine active segment index
     const segment = clampedProgress * (sceneCount - 1);
     const index = Math.floor(segment);
     const subProgress = segment - index;
@@ -37,7 +35,14 @@ export default function CameraRig({ progress }: CameraRigProps) {
       subProgress
     );
 
-    camera.position.lerp(targetPos, 0.1);
+    // Dynamic subtle mouse parallax
+    const mouseX = (state.pointer.x * 0.4);
+    const mouseY = (state.pointer.y * 0.4);
+    targetPos.x += mouseX;
+    targetPos.y += mouseY;
+
+    // Smooth spring physics damping
+    camera.position.lerp(targetPos, 0.08);
     camera.lookAt(targetLookAt);
   });
 
