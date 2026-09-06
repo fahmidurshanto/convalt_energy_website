@@ -19,6 +19,11 @@ export function constructMetadata({
     title: `${title} | Convalt Energy`,
     description,
     metadataBase: new URL(BASE_URL),
+    icons: {
+      icon: '/favicon.jpeg',
+      shortcut: '/favicon.jpeg',
+      apple: '/favicon.jpeg',
+    },
     alternates: {
       canonical: url,
     },

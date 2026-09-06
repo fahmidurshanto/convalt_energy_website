@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Convalt Energy | Sustainable Clean Energy & Solar Manufacturing",
   description: "Pioneering sustainable power generation, solar panel manufacturing, and renewable infrastructure.",
+  icons: {
+    icon: "/favicon.jpeg",
+    shortcut: "/favicon.jpeg",
+    apple: "/favicon.jpeg",
+  },
 };
 
 export default function RootLayout({
